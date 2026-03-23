@@ -9,6 +9,7 @@ CSV.foreach(csv_file, headers: true) do |row|
     g.description = row["description"]
   end
 end
+puts"#{Genre.count}"
 
 # Books from OpenAPI
 subjects = [ "fiction", "mystery", "romance", "science_fiction", "fantasy" ]
@@ -40,6 +41,7 @@ subjects.each do |subject|
     end
   end
 end
+puts"#{Book.count}"
 
 # Reviews with Faker
 Book.all.each do |book|
@@ -52,3 +54,4 @@ Book.all.each do |book|
     )
   end
 end
+puts"#{Review.count}"
