@@ -2,23 +2,11 @@ require 'net/http'
 require 'json'
 require 'csv'
 
-# Genres
-genres = [
-  { name: "Fiction", description: "Imaginative and narrative literature" },
-  { name: "Non-Fiction", description: "Factual and informative literature" },
-  { name: "Science Fiction", description: "Speculative fiction based on science" },
-  { name: "Mystery", description: "Stories involving crime and suspense" },
-  { name: "Romance", description: "Stories centered on love and relationships" },
-  { name: "Biography", description: "Life stories of real people" },
-  { name: "Fantasy", description: "Stories set in magical or supernatural worlds" },
-  { name: "History", description: "Books about historical events and periods" },
-  { name: "Self-Help", description: "Books for personal development" },
-  { name: "Horror", description: "Stories designed to frighten and disturb" }
-]
-
-genres.each do |g|
-  Genre.find_or_create_by(name: g[:name]) do |genre|
-    genre.description = g[:description]
+# Genres with CSV file
+csv_file = Rails.root.join("db", "genres.csv")
+CSV.foreach(csv_file, headers: true) do |row|
+  Genre.find_or_create_by(name: row["name"]) do |g|
+    g.description = row["description"]
   end
 end
 
