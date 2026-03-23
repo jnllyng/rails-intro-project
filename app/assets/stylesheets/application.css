@@ -172,3 +172,27 @@ a:hover {
 hr {
   border-color: var(--beige);
 }
+
+/* no cover placeholder */
+.no-cover {
+  background-color: var(--forest-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  color: var(--cream);
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Review Cards */
+.review-rating {
+  color: var(--gold);
+  font-size: 0.9rem;
+}
+
+.review-body {
+  line-height: 1.8;
+  color: #555;
+}
