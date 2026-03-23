@@ -1,2 +1,19 @@
-<h1>Authors#index</h1>
-<p>Find me in app/views/authors/index.html.erb</p>
+<h1 class="mb-4">Authors</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @authors.each do |author| %>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title" style="font-size: 1.2rem;"><%= author.name %></h2>
+          <p class="text-muted" style="font-size: 0.85rem;"><%= author.nationality %></p>
+          <p><%= author.bio.truncate(100) %></p>
+          <span class="badge bg-secondary"><%= author.books.count %> books</span>
+        </div>
+        <div class="card-footer">
+          <%= link_to "View Author", author_path(author), class: "btn btn-dark w-100" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
